@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=wmnet
+Comment=Network Monitor
+Comment[pl]=Monitor Sieci
+Exec=wmnet
+Terminal=0
+Type=Application
