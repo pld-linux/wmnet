@@ -45,7 +45,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 if [ ! -e /proc/net/ip_acct ]; then
-        echo "You must have IP accounting enabled in your kernel!"
+	echo "You must have IP accounting enabled in your kernel!"
 fi
 
 %files
