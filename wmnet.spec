@@ -11,7 +11,6 @@ Source1:	%{name}.desktop
 Icon:		wmnet.gif
 URL:		http://www.digitalkaos.net/linux/wmnet/
 BuildRequires: XFree86-devel
-BuildRequires: kernel-headers
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_prefix 	/usr/X11R6
