@@ -1,62 +1,68 @@
-%define name wmnet
-%define version 1.04
-%define release 1
-
-%define builddir $RPM_BUILD_DIR/%{name}-%{version}
-
-Summary: Applet that monitors the network
-Summary(fr): Applette qui surveille le réseau
-
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Group: X11/Utilities
-Copyright: GPL
-Packager: Jesse B. Off <joff@iastate.edu>
-Source0: %{name}-%{version}.tar.gz
-Source1: %{name}.wmconfig
+Summary: 	Applet that monitors the network
+Summary(fr): 	Applette qui surveille le réseau
+Summary(pl):	Aplet monitoruj±cy sieæ
+Name:		wmnet
+Version:	1.04
+Release:	2
+Copyright:      GPL
+Group:		X11/Window Managers/Tools
+Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
+Source0:	%{name}-%{version}.tar.gz
+Source1:	wmnet.desktop
+Icon: 		wmnet.gif
 BuildRoot:	/tmp/%{name}-%{version}-root
-Icon: %{name}.gif
-Exclusiveos: Linux
 
-%changelog
-
+%define _prefix /usr/X11R6
+%define _mandir %{_prefix}/man
 
 %description 
-Wmnet uses ip accounting in the Linux kernel
-to monitor your network.
+Wmnet uses ip accounting in the Linux kernel to monitor your network.
 
 %description -l fr
-Wmnet utilise "l'ip accounting" dans le kernel
-de Linux pour surveiller le réseau.
+Wmnet utilise "l'ip accounting" dans le kernel de Linux pour surveiller 
+le réseau.
+
+%description -l pl
+Wmnet u¿ywa "ip accounting" w j±drze Linuxa do monitorowania sieci.
 
 %prep
-
-%setup
+%setup -q
 
 %build
-xmkmf
-make CFLAGS="$RPM_OPT_FLAGS"
+xmkmf -a
+make CFLAGS="$RPM_OPT_FLAGS -Wall -I/usr/X11R6/include"
 
 %install
-if [ -d $RPM_BUILD_ROOT ]; then rm -r $RPM_BUILD_ROOT ; fi
-mkdir -p $RPM_BUILD_ROOT/usr/X11R6/bin $RPM_BUILD_ROOT/etc/X11/wmconfig $RPM_BUILD_ROOT/usr/X11R6/man/man1
-strip %{builddir}/wmnet
-cp %{builddir}/wmnet $RPM_BUILD_ROOT/usr/X11R6/bin
-cp %{builddir}/wmnet.man $RPM_BUILD_ROOT/usr/X11R6/man/man1/wmnet.1x
-cp $RPM_SOURCE_DIR/%{name}.wmconfig $RPM_BUILD_ROOT/etc/X11/wmconfig/%{name}
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
+	$RPM_BUILD_ROOT/etc/X11/applnk/DockApplets 
 
-%files
-%doc TODO README Changelog
-%attr(644,root,root) %config(missingok) /etc/X11/wmconfig/wmnet
-%attr(755,root,root) /usr/X11R6/bin/wmnet
-%attr(644,root,root) /usr/X11R6/man/man1/wmnet.1x
+install -s wmnet $RPM_BUILD_ROOT%{_bindir}
+install wmnet.man $RPM_BUILD_ROOT%{_mandir}/man1/wmnet.1x
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/applnk/DockApplets
 
-%clean
-rm -r $RPM_BUILD_ROOT
-rm -r %{builddir}
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
+	TODO README Changelog
 
 %post
 if [ ! -e /proc/net/ip_acct ]; then
-	echo "You must have IP accounting enabled in your kernel !"
+        echo "You must have IP accounting enabled in your kernel !"
 fi
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(644,root,root,755)
+%doc {TODO,README,Changelog}.gz
+
+%attr(755,root,root) %{_bindir}/wmnet
+%{_mandir}/man1/*
+
+/etc/X11/applnk/DockApplets/wmnet.desktop
+
+%changelog
+* Sun Jul 11 1999 Piotr Czerwiñski <pius@pld.org.pl> 
+  [1.04-2]
+- spec rewritten for PLD use,
+- based on spec file by Jesse B. Off <joff@iastate.edu>.
