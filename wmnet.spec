@@ -1,15 +1,16 @@
-Summary: 	Applet that monitors the network
-Summary(fr): 	Applette qui surveille le réseau
+Summary:	Applet that monitors the network
+Summary(fr):	Applette qui surveille le réseau
 Summary(pl):	Aplet monitoruj±cy sieæ
 Name:		wmnet
 Version:	1.04
 Release:	2
-Copyright:      GPL
+License:	GPL
 Group:		X11/Window Managers/Tools
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Source0:	%{name}-%{version}.tar.gz
 Source1:	wmnet.desktop
-Icon: 		wmnet.gif
+Icon:		wmnet.gif
+URL:		http://isufug.ee.iastate.edu/~joff/wmnet.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_prefix 	/usr/X11R6
@@ -19,8 +20,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Wmnet uses ip accounting in the Linux kernel to monitor your network.
 
 %description -l fr
-Wmnet utilise "l'ip accounting" dans le kernel de Linux pour surveiller 
-le réseau.
+Wmnet utilise "l'ip accounting" dans le kernel de Linux pour
+surveiller le réseau.
 
 %description -l pl
 Wmnet u¿ywa "ip accounting" w j±drze Linuxa do monitorowania sieci.
@@ -30,7 +31,7 @@ Wmnet u¿ywa "ip accounting" w j±drze Linuxa do monitorowania sieci.
 
 %build
 xmkmf -a
-make CFLAGS="$RPM_OPT_FLAGS -Wall -I/usr/X11R6/include"
+make CFLAGS="$RPM_OPT_FLAGS -Wall -I%{_includedir}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
