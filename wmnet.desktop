@@ -3,5 +3,5 @@ Name=WmNet
 Comment=Network Monitor
 Comment[pl]=Monitor Sieci
 Exec=wmnet
-Terminal=0
+Terminal=false
 Type=Application
