@@ -60,9 +60,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 /etc/X11/applnk/DockApplets/wmnet.desktop
-
-%changelog
-* Sun Jul 11 1999 Piotr Czerwiñski <pius@pld.org.pl> 
-  [1.04-2]
-- spec rewritten for PLD use,
-- based on spec file by Jesse B. Off <joff@iastate.edu>.
