@@ -6,9 +6,10 @@ Version:	1.04
 Release:	2
 License:	GPL
 Group:		X11/Window Managers/Tools
+Group(de):	X11/Fenstermanager/Werkzeuge
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Source0:	%{name}-%{version}.tar.gz
-Source1:	wmnet.desktop
+Source1:	%{name}.desktop
 Icon:		wmnet.gif
 URL:		http://isufug.ee.iastate.edu/~joff/wmnet.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -31,19 +32,18 @@ Wmnet u¿ywa "ip accounting" w j±drze Linuxa do monitorowania sieci.
 
 %build
 xmkmf -a
-%{__make} CFLAGS="$RPM_OPT_FLAGS -Wall -I%{_includedir}"
+%{__make} CFLAGS="%{rpmcflags} -Wall -I%{_includedir}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
 	$RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
-install -s wmnet $RPM_BUILD_ROOT%{_bindir}
+install wmnet $RPM_BUILD_ROOT%{_bindir}
 install wmnet.man $RPM_BUILD_ROOT%{_mandir}/man1/wmnet.1x
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
-	TODO README Changelog
+gzip -9nf TODO README Changelog
 
 %post
 if [ ! -e /proc/net/ip_acct ]; then
