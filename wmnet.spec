@@ -31,7 +31,7 @@ Wmnet u¿ywa "ip accounting" w j±drze Linuxa do monitorowania sieci.
 
 %build
 xmkmf -a
-make CFLAGS="$RPM_OPT_FLAGS -Wall -I%{_includedir}"
+%{__make} CFLAGS="$RPM_OPT_FLAGS -Wall -I%{_includedir}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
