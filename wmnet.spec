@@ -42,7 +42,6 @@ install wmnet $RPM_BUILD_ROOT%{_bindir}
 install wmnet.man $RPM_BUILD_ROOT%{_mandir}/man1/wmnet.1x
 #install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
-gzip -9nf README Changelog
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -54,7 +53,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README Changelog
 
 %attr(755,root,root) %{_bindir}/wmnet
 %{_mandir}/man1/*
