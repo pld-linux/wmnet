@@ -55,7 +55,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc {TODO,README,Changelog}.gz
+%doc *.gz
 
 %attr(755,root,root) %{_bindir}/wmnet
 %{_mandir}/man1/*
