@@ -2,8 +2,8 @@ Summary:	Applet that monitors the network
 Summary(fr):	Applette qui surveille le réseau
 Summary(pl):	Aplet monitoruj±cy sieæ
 Name:		wmnet
-Version:	1.04
-Release:	2
+Version:	1.06
+Release:	1
 License:	GPL
 Group:		X11/Window Managers/Tools
 Group(de):	X11/Fenstermanager/Werkzeuge
@@ -41,9 +41,9 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
 
 install wmnet $RPM_BUILD_ROOT%{_bindir}
 install wmnet.man $RPM_BUILD_ROOT%{_mandir}/man1/wmnet.1x
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
+#install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
-gzip -9nf TODO README Changelog
+gzip -9nf README Changelog
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -60,4 +60,4 @@ fi
 %attr(755,root,root) %{_bindir}/wmnet
 %{_mandir}/man1/*
 
-%{_applnkdir}/DockApplets/wmnet.desktop
+#%{_applnkdir}/DockApplets/wmnet.desktop
