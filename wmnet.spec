@@ -14,6 +14,7 @@ BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define 	_prefix 	/usr/X11R6
 %define 	_mandir 	%{_prefix}/man
+%define		_applnkdir	%{_datadir}/applnk
 
 %description 
 Wmnet uses ip accounting in the Linux kernel to monitor your network.
@@ -35,11 +36,11 @@ make CFLAGS="$RPM_OPT_FLAGS -Wall -I/usr/X11R6/include"
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
-	$RPM_BUILD_ROOT/usr/X11R6/share/applnk/DockApplets 
+	$RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 install -s wmnet $RPM_BUILD_ROOT%{_bindir}
 install wmnet.man $RPM_BUILD_ROOT%{_mandir}/man1/wmnet.1x
-install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/applnk/DockApplets
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	TODO README Changelog
@@ -59,4 +60,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/wmnet
 %{_mandir}/man1/*
 
-/usr/X11R6/share/applnk/DockApplets/wmnet.desktop
+%{_applnkdir}/DockApplets/wmnet.desktop
