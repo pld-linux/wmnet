@@ -15,7 +15,7 @@ Copyright: GPL
 Packager: Jesse B. Off <joff@iastate.edu>
 Source0: %{name}-%{version}.tar.gz
 Source1: %{name}.wmconfig
-Buildroot: /tmp/%{name}-%{version}-%{release}-root
+BuildRoot:	/tmp/%{name}-%{version}-root
 Icon: %{name}.gif
 Exclusiveos: Linux
 
