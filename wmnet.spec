@@ -8,10 +8,10 @@ License:	GPL
 Group:		X11/Window Managers/Tools
 Group(de):	X11/Fenstermanager/Werkzeuge
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
-Source0:	%{name}-%{version}.tar.gz
+Source0:	http://www.digitalkaos.net/linux/wmnet/download/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Icon:		wmnet.gif
-URL:		http://isufug.ee.iastate.edu/~joff/wmnet.html
+URL:		http://www.digitalkaos.net/linux/wmnet/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_prefix 	/usr/X11R6
@@ -25,7 +25,7 @@ Wmnet utilise "l'ip accounting" dans le kernel de Linux pour
 surveiller le réseau.
 
 %description -l pl
-Wmnet u¿ywa "ip accounting" w j±drze Linuxa do monitorowania sieci.
+Wmnet u¿ywa "ip accounting" w j±drze Linuksa do monitorowania sieci.
 
 %prep
 %setup -q
@@ -45,13 +45,13 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 gzip -9nf TODO README Changelog
 
-%post
-if [ ! -e /proc/net/ip_acct ]; then
-        echo "You must have IP accounting enabled in your kernel !"
-fi
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+if [ ! -e /proc/net/ip_acct ]; then
+        echo "You must have IP accounting enabled in your kernel!"
+fi
 
 %files
 %defattr(644,root,root,755)
