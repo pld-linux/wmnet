@@ -3,7 +3,7 @@ Summary(fr):	Applette qui surveille le réseau
 Summary(pl):	Aplet monitoruj±cy sieæ
 Name:		wmnet
 Version:	1.06
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://www.digitalkaos.net/linux/wmnet/download/%{name}-%{version}.tar.gz
