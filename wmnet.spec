@@ -35,11 +35,11 @@ make CFLAGS="$RPM_OPT_FLAGS -Wall -I/usr/X11R6/include"
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
-	$RPM_BUILD_ROOT/etc/X11/applnk/DockApplets 
+	$RPM_BUILD_ROOT/usr/X11R6/share/applnk/DockApplets 
 
 install -s wmnet $RPM_BUILD_ROOT%{_bindir}
 install wmnet.man $RPM_BUILD_ROOT%{_mandir}/man1/wmnet.1x
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/applnk/DockApplets
+install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/applnk/DockApplets
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
 	TODO README Changelog
@@ -59,4 +59,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/wmnet
 %{_mandir}/man1/*
 
-/etc/X11/applnk/DockApplets/wmnet.desktop
+/usr/X11R6/share/applnk/DockApplets/wmnet.desktop
