@@ -7,12 +7,12 @@ Release:	3
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://www.digitalkaos.net/linux/wmnet/download/%{name}-%{version}.tar.gz
+# Source0-md5:	64e74c37c0cb5fd4fb81cfb0f5c4a264
 Source1:	%{name}.desktop
 Icon:		wmnet.gif
 URL:		http://www.digitalkaos.net/linux/wmnet/
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 Wmnet uses ip accounting in the Linux kernel to monitor your network.
@@ -39,7 +39,6 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
 install wmnet $RPM_BUILD_ROOT%{_bindir}
 install wmnet.man $RPM_BUILD_ROOT%{_mandir}/man1/wmnet.1x
 #install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
