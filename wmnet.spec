@@ -58,4 +58,4 @@ fi
 %attr(755,root,root) %{_bindir}/wmnet
 %{_mandir}/man1/*
 
-#%{_applnkdir}/DockApplets/wmnet.desktop
+#%%{_applnkdir}/DockApplets/wmnet.desktop
