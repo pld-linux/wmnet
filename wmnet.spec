@@ -12,8 +12,8 @@ Source1:	wmnet.desktop
 Icon: 		wmnet.gif
 BuildRoot:	/tmp/%{name}-%{version}-root
 
-%define _prefix /usr/X11R6
-%define _mandir %{_prefix}/man
+%define 	_prefix 	/usr/X11R6
+%define 	_mandir 	%{_prefix}/man
 
 %description 
 Wmnet uses ip accounting in the Linux kernel to monitor your network.
