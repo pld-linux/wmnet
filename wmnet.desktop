@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=wmnet
+Name=WmNet
 Comment=Network Monitor
 Comment[pl]=Monitor Sieci
 Exec=wmnet
