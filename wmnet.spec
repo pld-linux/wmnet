@@ -10,7 +10,7 @@ Source0:	http://www.digitalkaos.net/linux/wmnet/download/%{name}-%{version}.tar.
 Source1:	%{name}.desktop
 Icon:		wmnet.gif
 URL:		http://www.digitalkaos.net/linux/wmnet/
-BuildRequires: XFree86-devel
+BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	_prefix 	/usr/X11R6
