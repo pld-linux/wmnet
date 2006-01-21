@@ -9,7 +9,6 @@ Group:		X11/Window Managers/Tools
 Source0:	http://www.digitalkaos.net/linux/wmnet/download/%{name}-%{version}.tar.gz
 # Source0-md5:	64e74c37c0cb5fd4fb81cfb0f5c4a264
 Source1:	%{name}.desktop
-Icon:		wmnet.gif
 URL:		http://www.digitalkaos.net/linux/wmnet/
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
