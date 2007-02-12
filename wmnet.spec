@@ -1,6 +1,6 @@
 Summary:	Applet that monitors the network
-Summary(fr):	Applette qui surveille le réseau
-Summary(pl):	Aplet monitoruj±cy sieæ
+Summary(fr.UTF-8):   Applette qui surveille le rÃ©seau
+Summary(pl.UTF-8):   Aplet monitorujÄ…cy sieÄ‡
 Name:		wmnet
 Version:	1.06
 Release:	4
@@ -16,12 +16,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Wmnet uses ip accounting in the Linux kernel to monitor your network.
 
-%description -l fr
+%description -l fr.UTF-8
 Wmnet utilise "l'ip accounting" dans le kernel de Linux pour
-surveiller le réseau.
+surveiller le rÃ©seau.
 
-%description -l pl
-Wmnet u¿ywa "ip accounting" w j±drze Linuksa do monitorowania sieci.
+%description -l pl.UTF-8
+Wmnet uÅ¼ywa "ip accounting" w jÄ…drze Linuksa do monitorowania sieci.
 
 %prep
 %setup -q
