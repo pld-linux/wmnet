@@ -1,6 +1,6 @@
 Summary:	Applet that monitors the network
-Summary(fr.UTF-8):   Applette qui surveille le réseau
-Summary(pl.UTF-8):   Aplet monitorujący sieć
+Summary(fr.UTF-8):	Applette qui surveille le réseau
+Summary(pl.UTF-8):	Aplet monitorujący sieć
 Name:		wmnet
 Version:	1.06
 Release:	4
